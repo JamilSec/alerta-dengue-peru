@@ -1,0 +1,48 @@
+{
+ "sin_clima": {
+  "una_etapa": {
+   "l2_regularization": 1.0,
+   "learning_rate": 0.05,
+   "max_iter": 300,
+   "max_leaf_nodes": 15,
+   "min_samples_leaf": 60
+  },
+  "inicio": {
+   "l2_regularization": 1.0,
+   "learning_rate": 0.03,
+   "max_iter": 300,
+   "max_leaf_nodes": 15,
+   "min_samples_leaf": 60
+  },
+  "continuacion": {
+   "l2_regularization": 1.0,
+   "learning_rate": 0.03,
+   "max_iter": 300,
+   "max_leaf_nodes": 15,
+   "min_samples_leaf": 60
+  }
+ },
+ "con_clima": {
+  "una_etapa": {
+   "l2_regularization": 1.0,
+   "learning_rate": 0.03,
+   "max_iter": 300,
+   "max_leaf_nodes": 15,
+   "min_samples_leaf": 20
+  },
+  "inicio": {
+   "l2_regularization": 1.0,
+   "learning_rate": 0.03,
+   "max_iter": 300,
+   "max_leaf_nodes": 15,
+   "min_samples_leaf": 60
+  },
+  "continuacion": {
+   "l2_regularization": 1.0,
+   "learning_rate": 0.1,
+   "max_iter": 300,
+   "max_leaf_nodes": 31,
+   "min_samples_leaf": 60
+  }
+ }
+}

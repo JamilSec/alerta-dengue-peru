@@ -1,0 +1,755 @@
+{
+ "datos": {
+  "filas_crudas": 1065274,
+  "tras_nulos_clave": 1065274,
+  "tras_validar_categorias": 1065274,
+  "tras_validar_edad": 1065260,
+  "sin_ubicacion_conocida": 0,
+  "filas_finales": 1065260,
+  "nulos_por_columna": {
+   "departamento": 0,
+   "provincia": 0,
+   "distrito": 0,
+   "localidad": 123635,
+   "enfermedad": 0,
+   "ano": 0,
+   "semana": 0,
+   "diagnostic": 0,
+   "tipo_dx": 0,
+   "diresa": 23,
+   "ubigeo": 0,
+   "localcod": 149652,
+   "edad": 0,
+   "tipo_edad": 0,
+   "sexo": 0
+  },
+  "columnas": [
+   "departamento",
+   "provincia",
+   "distrito",
+   "localidad",
+   "enfermedad",
+   "ano",
+   "semana",
+   "diagnostic",
+   "tipo_dx",
+   "diresa",
+   "ubigeo",
+   "localcod",
+   "edad",
+   "tipo_edad",
+   "sexo"
+  ],
+  "anos": [
+   2000,
+   2025
+  ],
+  "departamentos": 23,
+  "distritos": 662,
+  "severidad": {
+   "SIN SIGNOS DE ALARMA": 944659,
+   "CON SIGNOS DE ALARMA": 116404,
+   "GRAVE": 4197
+  },
+  "sexo": {
+   "F": 572206,
+   "M": 493054
+  },
+  "edad_media": 30.492549283528614,
+  "edad_mediana": 28.0
+ },
+ "panel": {
+  "distritos": 325,
+  "umbral_min_casos_distrito": 50,
+  "filas": 388375,
+  "prevalencia": 0.04076987447698745,
+  "n_features": 16,
+  "features": [
+   "lg_l0",
+   "lg_l1",
+   "lg_l2",
+   "lg_l3",
+   "lg_media4",
+   "lg_max8",
+   "tendencia",
+   "ratio",
+   "en_brote",
+   "brotes4",
+   "lg_umbral_sig",
+   "lg_hist_sig",
+   "lg_dep_otros",
+   "dep_brotes",
+   "sen",
+   "cos"
+  ]
+ },
+ "eda": {
+  "casos_por_ano": {
+   "2000": 5557,
+   "2001": 23526,
+   "2002": 8086,
+   "2003": 3349,
+   "2004": 9547,
+   "2005": 5640,
+   "2006": 4022,
+   "2007": 6344,
+   "2008": 12824,
+   "2009": 13407,
+   "2010": 16842,
+   "2011": 28084,
+   "2012": 28505,
+   "2013": 13091,
+   "2014": 17234,
+   "2015": 35816,
+   "2016": 25160,
+   "2017": 68279,
+   "2018": 4698,
+   "2019": 15287,
+   "2020": 47932,
+   "2021": 44791,
+   "2022": 63216,
+   "2023": 256639,
+   "2024": 271531,
+   "2025": 35853
+  },
+  "top_departamentos": {
+   "PIURA": 239068,
+   "LIMA": 124513,
+   "LORETO": 113186,
+   "LA LIBERTAD": 101017,
+   "ICA": 69132,
+   "LAMBAYEQUE": 57061,
+   "SAN MARTIN": 56385,
+   "UCAYALI": 53650,
+   "TUMBES": 46531,
+   "ANCASH": 37680,
+   "CAJAMARCA": 36016,
+   "MADRE DE DIOS": 33242
+  },
+  "semana_pico_mediana": 15,
+  "brotes_panel_por_ano": {
+   "2000": 0,
+   "2001": 0,
+   "2002": 0,
+   "2003": 41,
+   "2004": 232,
+   "2005": 120,
+   "2006": 93,
+   "2007": 147,
+   "2008": 297,
+   "2009": 302,
+   "2010": 365,
+   "2011": 308,
+   "2012": 460,
+   "2013": 249,
+   "2014": 337,
+   "2015": 813,
+   "2016": 646,
+   "2017": 848,
+   "2018": 58,
+   "2019": 361,
+   "2020": 1264,
+   "2021": 1338,
+   "2022": 1386,
+   "2023": 3796,
+   "2024": 1972,
+   "2025": 404
+  }
+ },
+ "senales": {
+  "n_picos": 7,
+  "anos_picos": [
+   2011,
+   2012,
+   2015,
+   2017,
+   2022,
+   2023,
+   2024
+  ],
+  "frecuencias_dominantes_ciclos_ano": [
+   0.038461538461538464,
+   0.07692307692307693,
+   0.11538461538461539
+  ]
+ },
+ "no_supervisado": {
+  "n_distritos": 325,
+  "silhouette_por_k": {
+   "2": 0.2780036858094452,
+   "3": 0.2882329342164275,
+   "4": 0.2779914188837304,
+   "5": 0.263439830529167,
+   "6": 0.25215690248478306,
+   "7": 0.24137292318391623,
+   "8": 0.24175227602283375
+  },
+  "k_elegido": 3,
+  "pca_varianza": [
+   0.4668963883645224,
+   0.25876810942110356
+  ],
+  "dbscan": {
+   "eps": 0.7,
+   "sil": 0.7251199015930618,
+   "clusters": 2,
+   "ruido": 0.9476923076923077
+  },
+  "perfil_clusters": [
+   {
+    "cluster": 0,
+    "casos_sem": 0.24938226925572804,
+    "pct_semanas": 0.08379923126840713,
+    "cv": 5.903532511767324,
+    "brotes": 11.552238805970148,
+    "est_sen": 0.11491317003750456,
+    "est_cos": 0.36181977463768455,
+    "edad_media": 29.733447730755067,
+    "n": 134
+   },
+   {
+    "cluster": 1,
+    "casos_sem": 0.5956398377104009,
+    "pct_semanas": 0.06845907122100993,
+    "cv": 7.974459180158489,
+    "brotes": 18.459016393442624,
+    "est_sen": 0.6523994371842292,
+    "est_cos": -0.29768002418596595,
+    "edad_media": 31.929432821980722,
+    "n": 122
+   },
+   {
+    "cluster": 2,
+    "casos_sem": 4.496388929281179,
+    "pct_semanas": 0.3687290969899666,
+    "cv": 3.3146992573972818,
+    "brotes": 85.0,
+    "est_sen": 0.2450270874266461,
+    "est_cos": 0.07787653943194195,
+    "edad_media": 28.53080015547193,
+    "n": 69
+   }
+  ],
+  "ejemplos": {
+   "0": [
+    "MADRE DE DIOS",
+    "REQUENA",
+    "HUEPETUHE",
+    "LABERINTO"
+   ],
+   "1": [
+    "VEINTISEIS DE OCTUBRE",
+    "ICA",
+    "CASMA",
+    "TRUJILLO"
+   ],
+   "2": [
+    "IQUITOS",
+    "PIURA",
+    "SULLANA",
+    "CALLERIA"
+   ]
+  }
+ },
+ "severidad_binaria": {
+  "pr_auc": 0.14018789843674204,
+  "roc_auc": 0.5607219761936066,
+  "prevalencia": 0.11233761743758676,
+  "n_test": 564023,
+  "n_train": 392093
+ },
+ "severidad_3clases": {
+  "f1_macro": 0.3438122838950795,
+  "recall_grave": 0.22136222910216719,
+  "precision_grave": 0.008534595949548402,
+  "bal_acc": 0.40204124570089483
+ },
+ "particion": {
+  "train": {
+   "n": 304200,
+   "prevalencia": 0.022965154503616043,
+   "anos": [
+    2003,
+    2020
+   ]
+  },
+  "valid": {
+   "n": 33800,
+   "prevalencia": 0.0801775147928994,
+   "anos": [
+    2021,
+    2022
+   ]
+  },
+  "test": {
+   "n": 50375,
+   "prevalencia": 0.12184615384615384,
+   "anos": [
+    2023,
+    2025
+   ]
+  }
+ },
+ "grid": {
+  "mejor": {
+   "l2_regularization": 1.0,
+   "learning_rate": 0.1,
+   "max_iter": 200,
+   "max_leaf_nodes": 15,
+   "pr_auc_medio": 0.7485940929702065,
+   "pr_auc_de": 0.14555417076119526
+  },
+  "n_combinaciones": 8
+ },
+ "comparacion": [
+  {
+   "modelo": "Dummy (prior)",
+   "umbral": 1.0,
+   "train_f1": 0.0,
+   "train_pr_auc": 0.0239,
+   "valid_pr_auc": 0.0801775147928994,
+   "valid_f1": 0.0,
+   "test_pr_auc": 0.12184615384615384,
+   "test_roc_auc": 0.5,
+   "test_precision": 0.0,
+   "test_recall": 0.0,
+   "test_f1": 0.0,
+   "test_bal_acc": 0.5,
+   "test_recall_inicio": 0.0,
+   "seg": 0.06769204139709473
+  },
+  {
+   "modelo": "Regresión logística",
+   "umbral": 0.9700434926455455,
+   "train_f1": 0.7232267037552156,
+   "train_pr_auc": 0.7916625718469814,
+   "valid_pr_auc": 0.753888654477234,
+   "valid_f1": 0.6907216494845361,
+   "test_pr_auc": 0.8996868295114007,
+   "test_roc_auc": 0.9806615173241927,
+   "test_precision": 0.7571201387884922,
+   "test_recall": 0.8532095144998371,
+   "test_f1": 0.8022979701263884,
+   "test_bal_acc": 0.907616127822064,
+   "test_recall_inicio": 0.44019138755980863,
+   "seg": 0.3913750648498535
+  },
+  {
+   "modelo": "KNN (k=15)",
+   "umbral": 0.40167031906937734,
+   "train_f1": 0.903202846975089,
+   "train_pr_auc": 0.9453979893831291,
+   "valid_pr_auc": 0.7129296561175741,
+   "valid_f1": 0.6716754320060105,
+   "test_pr_auc": 0.8688101428083368,
+   "test_roc_auc": 0.9635479778552611,
+   "test_precision": 0.7948717948717948,
+   "test_recall": 0.797979797979798,
+   "test_f1": 0.7964227642276422,
+   "test_bal_acc": 0.8847032158965609,
+   "test_recall_inicio": 0.08452950558213716,
+   "seg": 2.2988369464874268
+  },
+  {
+   "modelo": "SVM lineal",
+   "umbral": 0.9979757668355332,
+   "train_f1": 0.7075940383250532,
+   "train_pr_auc": 0.785476483698231,
+   "valid_pr_auc": 0.7500710684918133,
+   "valid_f1": 0.6893399158895593,
+   "test_pr_auc": 0.8963098012132331,
+   "test_roc_auc": 0.9800249059110966,
+   "test_precision": 0.7673657593336308,
+   "test_recall": 0.8405017921146953,
+   "test_f1": 0.8022704299821165,
+   "test_bal_acc": 0.9025733862804641,
+   "test_recall_inicio": 0.44976076555023925,
+   "seg": 0.6418178081512451
+  },
+  {
+   "modelo": "Árbol de decisión",
+   "umbral": 0.9551008078769613,
+   "train_f1": 0.7276704338315713,
+   "train_pr_auc": 0.7965477835608853,
+   "valid_pr_auc": 0.7361791071220669,
+   "valid_f1": 0.6857897716550293,
+   "test_pr_auc": 0.881402590559533,
+   "test_roc_auc": 0.9712540743598164,
+   "test_precision": 0.8144946808510638,
+   "test_recall": 0.7983056370153144,
+   "test_f1": 0.8063189073556031,
+   "test_bal_acc": 0.8865389432448681,
+   "test_recall_inicio": 0.17543859649122806,
+   "seg": 0.5694189071655273
+  },
+  {
+   "modelo": "Random Forest",
+   "umbral": 0.8387289163300871,
+   "train_f1": 0.8033057851239669,
+   "train_pr_auc": 0.8942471544619051,
+   "valid_pr_auc": 0.7638050876342685,
+   "valid_f1": 0.6833248342682305,
+   "test_pr_auc": 0.8970098774638816,
+   "test_roc_auc": 0.979159698199263,
+   "test_precision": 0.7767034990791897,
+   "test_recall": 0.8245356793743891,
+   "test_f1": 0.7999051683262209,
+   "test_bal_acc": 0.8958223302719992,
+   "test_recall_inicio": 0.2767145135566188,
+   "seg": 4.141340017318726
+  },
+  {
+   "modelo": "Gradient Boosting",
+   "umbral": 0.4057383997183925,
+   "train_f1": 0.7440347071583514,
+   "train_pr_auc": 0.8035098753329015,
+   "valid_pr_auc": 0.761604736771225,
+   "valid_f1": 0.6927934621099554,
+   "test_pr_auc": 0.8993403504776145,
+   "test_roc_auc": 0.9796518008066581,
+   "test_precision": 0.7941082802547771,
+   "test_recall": 0.8124796350602802,
+   "test_f1": 0.803188919310678,
+   "test_bal_acc": 0.8916253545240592,
+   "test_recall_inicio": 0.24162679425837322,
+   "seg": 0.8271429538726807
+  },
+  {
+   "modelo": "MLP (64,32)",
+   "umbral": 0.35224508405526705,
+   "train_f1": 0.7281323877068558,
+   "train_pr_auc": 0.813508715004844,
+   "valid_pr_auc": 0.7726415556585072,
+   "valid_f1": 0.6987662782727896,
+   "test_pr_auc": 0.9050025871100614,
+   "test_roc_auc": 0.9807780730783806,
+   "test_precision": 0.7610966057441253,
+   "test_recall": 0.8548387096774194,
+   "test_f1": 0.8052486187845304,
+   "test_bal_acc": 0.9088037163460452,
+   "test_recall_inicio": 0.335725677830941,
+   "seg": 4.332942247390747
+  },
+  {
+   "modelo": "Gradient Boosting ajustado",
+   "umbral": 0.41299314634016077,
+   "train_f1": 0.7507309941520468,
+   "train_pr_auc": 0.8334030559906971,
+   "valid_pr_auc": 0.7791502053633584,
+   "valid_f1": 0.7069872276483846,
+   "test_pr_auc": 0.9059303291620521,
+   "test_roc_auc": 0.9811197503349819,
+   "test_precision": 0.8060104945142312,
+   "test_recall": 0.8258390355164549,
+   "test_f1": 0.815804297095035,
+   "test_bal_acc": 0.8991301559118092,
+   "test_recall_inicio": 0.2727272727272727,
+   "seg": 1.137474775314331
+  },
+  {
+   "modelo": "Regla: persistencia (R1)",
+   "umbral": NaN,
+   "train_f1": 0.703281027104137,
+   "train_pr_auc": NaN,
+   "valid_pr_auc": NaN,
+   "valid_f1": 0.6687523003312477,
+   "test_pr_auc": NaN,
+   "test_roc_auc": NaN,
+   "test_precision": 0.7922141119221411,
+   "test_recall": 0.7956989247311828,
+   "test_f1": 0.7939526944647647,
+   "test_bal_acc": 0.8833706324268523,
+   "test_recall_inicio": 0.0,
+   "seg": 0.0
+  },
+  {
+   "modelo": "Sistema experto (R1-R3)",
+   "umbral": NaN,
+   "train_f1": 0.6510028653295129,
+   "train_pr_auc": NaN,
+   "valid_pr_auc": NaN,
+   "valid_f1": 0.6127010084491687,
+   "test_pr_auc": NaN,
+   "test_roc_auc": NaN,
+   "test_precision": 0.5973347547974414,
+   "test_recall": 0.9128380579993484,
+   "test_f1": 0.7221291403531382,
+   "test_bal_acc": 0.9137285210538371,
+   "test_recall_inicio": 0.5733652312599681,
+   "seg": 0.0
+  }
+ ],
+ "reglas_disparos_test": {
+  "": 40995,
+  "R1_canal_superado": 6165,
+  "R3_foco_departamental": 2220,
+  "R2_ascenso_sostenido": 995
+ },
+ "seleccion": {
+  "modelo": "Gradient Boosting ajustado",
+  "criterio": "mayor PR-AUC en validacion 2021-2022",
+  "umbral_validacion": 0.41299314634016077
+ },
+ "final": {
+  "precision": 0.810971685971686,
+  "recall": 0.8212772890192245,
+  "f1": 0.8160919540229885,
+  "balanced_acc": 0.8973579066657259,
+  "recall_inicio_brote": 0.24561403508771928,
+  "n_inicios": 1254,
+  "n": 50375,
+  "prevalencia": 0.12184615384615384,
+  "pr_auc": 0.9071392073540631,
+  "roc_auc": 0.9815060309389971,
+  "matriz_confusion": [
+   [
+    43062,
+    1175
+   ],
+   [
+    1097,
+    5041
+   ]
+  ],
+  "train_f1_ref": 0.7479734708916728
+ },
+ "importancia": {
+  "ratio": 0.29726625824901814,
+  "lg_l0": 0.2216075935899048,
+  "lg_umbral_sig": 0.14558900690536367,
+  "lg_media4": 0.027415258354894535,
+  "lg_l1": 0.016698731528720322,
+  "lg_hist_sig": 0.002679639687294033,
+  "lg_max8": 0.0023813856913342812,
+  "cos": 0.0020004886547970056,
+  "dep_brotes": 0.0019669823045817434,
+  "lg_l2": 0.0017017976568722392,
+  "tendencia": 0.0012701576289847693,
+  "lg_l3": 0.0010768353680298492,
+  "brotes4": 0.0009269745399890894,
+  "sen": 5.778745474664948e-05,
+  "lg_dep_otros": 4.133381238755618e-05,
+  "en_brote": 0.0
+ },
+ "errores_departamento": [
+  {
+   "departamento": "PIURA",
+   "filas": 6200,
+   "brotes": 1219,
+   "VP": 1085,
+   "FP": 207,
+   "FN": 134,
+   "recall": 0.8900738310090238,
+   "precision": 0.8397832817337462
+  },
+  {
+   "departamento": "LA LIBERTAD",
+   "filas": 3100,
+   "brotes": 852,
+   "VP": 778,
+   "FP": 97,
+   "FN": 74,
+   "recall": 0.9131455399061033,
+   "precision": 0.8891428571428571
+  },
+  {
+   "departamento": "SAN MARTIN",
+   "filas": 7750,
+   "brotes": 732,
+   "VP": 546,
+   "FP": 246,
+   "FN": 186,
+   "recall": 0.7459016393442623,
+   "precision": 0.6893939393939394
+  },
+  {
+   "departamento": "ICA",
+   "filas": 4185,
+   "brotes": 699,
+   "VP": 608,
+   "FP": 93,
+   "FN": 91,
+   "recall": 0.8698140200286123,
+   "precision": 0.8673323823109843
+  },
+  {
+   "departamento": "LAMBAYEQUE",
+   "filas": 3255,
+   "brotes": 544,
+   "VP": 466,
+   "FP": 79,
+   "FN": 78,
+   "recall": 0.8566176470588235,
+   "precision": 0.8550458715596331
+  },
+  {
+   "departamento": "LIMA",
+   "filas": 1860,
+   "brotes": 422,
+   "VP": 380,
+   "FP": 37,
+   "FN": 42,
+   "recall": 0.9004739336492891,
+   "precision": 0.9112709832134293
+  },
+  {
+   "departamento": "TUMBES",
+   "filas": 2015,
+   "brotes": 343,
+   "VP": 279,
+   "FP": 56,
+   "FN": 64,
+   "recall": 0.8134110787172012,
+   "precision": 0.8328358208955224
+  },
+  {
+   "departamento": "LORETO",
+   "filas": 5425,
+   "brotes": 271,
+   "VP": 177,
+   "FP": 112,
+   "FN": 94,
+   "recall": 0.6531365313653137,
+   "precision": 0.6124567474048442
+  }
+ ],
+ "analisis_errores": {
+  "FN_media_casos_semana_actual": 8.238833181403828,
+  "VP_media_casos_semana_actual": 69.97123586589963,
+  "FN_que_son_inicio": 0.8623518687329079,
+  "FP_que_estaban_en_brote": 0.7268085106382979
+ },
+ "validacion_temporal": {
+  "Gradient Boosting": {
+   "media": 0.735752218104898,
+   "de": 0.12207378216195472,
+   "min": 0.4760032248969809,
+   "max": 0.8468590115227781
+  },
+  "Gradient Boosting ajustado": {
+   "media": 0.7806764630787738,
+   "de": 0.11070231586118794,
+   "min": 0.5428372178963252,
+   "max": 0.856678892849721
+  },
+  "KNN (k=15)": {
+   "media": 0.7157780993525377,
+   "de": 0.12193178019650532,
+   "min": 0.45288874106859967,
+   "max": 0.8027985632354288
+  },
+  "MLP (64,32)": {
+   "media": 0.7719730277118646,
+   "de": 0.12374091674376873,
+   "min": 0.5041778340740872,
+   "max": 0.8539515014721542
+  },
+  "Random Forest": {
+   "media": 0.7664841110449908,
+   "de": 0.11445162992599346,
+   "min": 0.5193805972431957,
+   "max": 0.850178933158542
+  },
+  "Regresión logística": {
+   "media": 0.7630011439664096,
+   "de": 0.11268493317830482,
+   "min": 0.5253981425887939,
+   "max": 0.8420030725932232
+  },
+  "SVM lineal": {
+   "media": 0.756507417448913,
+   "de": 0.11491302149989173,
+   "min": 0.5124549309376855,
+   "max": 0.838868273385407
+  },
+  "Árbol de decisión": {
+   "media": 0.745388442998986,
+   "de": 0.11379764923297829,
+   "min": 0.5026527252304132,
+   "max": 0.8327358945715523
+  }
+ },
+ "mejoras": {
+  "umbral_05": {
+   "precision": 0.8568349200646668,
+   "recall": 0.7771260997067448,
+   "f1": 0.815036309269543,
+   "balanced_acc": 0.8795547536307533,
+   "recall_inicio_brote": 0.16427432216905902,
+   "n_inicios": 1254,
+   "n": 50375,
+   "prevalencia": 0.12184615384615384,
+   "pr_auc": 0.9059303291620521,
+   "roc_auc": 0.9811197503349819
+  },
+  "umbral_ajustado": {
+   "precision": 0.8060104945142312,
+   "recall": 0.8258390355164549,
+   "f1": 0.815804297095035,
+   "balanced_acc": 0.8991301559118092,
+   "recall_inicio_brote": 0.2727272727272727,
+   "n_inicios": 1254,
+   "n": 50375,
+   "prevalencia": 0.12184615384615384,
+   "pr_auc": 0.9059303291620521,
+   "roc_auc": 0.9811197503349819
+  },
+  "umbral_valor": 0.41299314634016077,
+  "solo_rezagos": {
+   "precision": 0.5659413854351687,
+   "recall": 0.8305637015314434,
+   "f1": 0.6731810378977948,
+   "balanced_acc": 0.8710880763235127,
+   "recall_inicio_brote": 0.28548644338118023,
+   "n_inicios": 1254,
+   "n": 50375,
+   "prevalencia": 0.12184615384615384,
+   "pr_auc": 0.7296133244003755,
+   "roc_auc": 0.9504574459795495
+  },
+  "todas_variables": {
+   "precision": 0.8060104945142312,
+   "recall": 0.8258390355164549,
+   "f1": 0.815804297095035,
+   "balanced_acc": 0.8991301559118092,
+   "recall_inicio_brote": 0.2727272727272727,
+   "n_inicios": 1254,
+   "n": 50375,
+   "prevalencia": 0.12184615384615384,
+   "pr_auc": 0.9059303291620521,
+   "roc_auc": 0.9811197503349819
+  },
+  "particion_aleatoria_pr_auc": 0.8510010425832253,
+  "particion_temporal_pr_auc": 0.9059303291620521
+ },
+ "busqueda_variables": [
+  {
+   "variable": "ratio",
+   "pr_auc_valid": 0.7011747643329762
+  },
+  {
+   "variable": "lg_l1",
+   "pr_auc_valid": 0.7290114461231172
+  },
+  {
+   "variable": "lg_umbral_sig",
+   "pr_auc_valid": 0.7471578155345251
+  },
+  {
+   "variable": "lg_l0",
+   "pr_auc_valid": 0.7588583869164529
+  },
+  {
+   "variable": "cos",
+   "pr_auc_valid": 0.7622379012824207
+  },
+  {
+   "variable": "tendencia",
+   "pr_auc_valid": 0.7643402645182737
+  }
+ ],
+ "mlp": {
+  "epocas": 15,
+  "perdida_final": 0.03089727269706675
+ }
+}

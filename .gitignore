@@ -1,0 +1,21 @@
+.venv/
+__pycache__/
+.DS_Store
+*.log
+
+# Material institucional del curso
+recursos/
+notas/*
+!notas/referencias.md
+scripts/bb_ultra_export.js
+scripts/clasificar.py
+scripts/docx_a_texto.py
+# Depende de la plantilla institucional que no se publica
+scripts/build_informe.py
+
+# Datos: el CSV supera el limite de GitHub y se versiona comprimido
+datos/crudos/*.csv
+datos/_muestras/
+
+# Se regenera con scripts/ejecutar_todo.sh (173 MB)
+outputs/v2/panel_v2.pkl

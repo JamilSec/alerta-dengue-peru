@@ -1,0 +1,72 @@
+{
+ "precision_objetivo": 0.4,
+ "prevalencia_inicio_test": 0.028364623388373672,
+ "n_inicios_test": 1254,
+ "modelos": {
+  "CNN imagen historica": {
+   "umbral_inicio": 0.3254724442958832,
+   "valid": {
+    "alertas": 942,
+    "precision": 0.4002123142250531,
+    "recall": 0.4221724524076148
+   },
+   "test": {
+    "alertas": 1536,
+    "precision": 0.3899739583333333,
+    "recall": 0.47767145135566186
+   }
+  },
+  "Ensamble GB + CNN": {
+   "umbral_inicio": 0.3031190208413318,
+   "valid": {
+    "alertas": 930,
+    "precision": 0.4,
+    "recall": 0.4165733482642777
+   },
+   "test": {
+    "alertas": 1538,
+    "precision": 0.3914174252275683,
+    "recall": 0.4800637958532695
+   }
+  },
+  "Ensamble GB + GRU": {
+   "umbral_inicio": 0.27208155531312317,
+   "valid": {
+    "alertas": 982,
+    "precision": 0.40020366598778007,
+    "recall": 0.4400895856662934
+   },
+   "test": {
+    "alertas": 1600,
+    "precision": 0.389375,
+    "recall": 0.49681020733652315
+   }
+  },
+  "GRU secuencia": {
+   "umbral_inicio": 0.2705761790275574,
+   "valid": {
+    "alertas": 1007,
+    "precision": 0.4001986097318769,
+    "recall": 0.45128779395296753
+   },
+   "test": {
+    "alertas": 1561,
+    "precision": 0.39333760409993596,
+    "recall": 0.48963317384370014
+   }
+  },
+  "Gradient Boosting (tabular)": {
+   "umbral_inicio": 0.3058867044495539,
+   "valid": {
+    "alertas": 790,
+    "precision": 0.4,
+    "recall": 0.3538633818589026
+   },
+   "test": {
+    "alertas": 1399,
+    "precision": 0.38598999285203717,
+    "recall": 0.430622009569378
+   }
+  }
+ }
+}

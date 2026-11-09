@@ -1,0 +1,120 @@
+{
+ "escenario": {
+  "paradas": 3,
+  "km_max": 400.0,
+  "candidatos": 10,
+  "departamentos": 19
+ },
+ "politicas": [
+  {
+   "politica": "Agente (modelo + A*)",
+   "visitas": 8333,
+   "brotes_atendidos": 2227,
+   "cobertura_brotes": 0.3628217660475725,
+   "inicios_atendidos": 321,
+   "cobertura_inicios": 0.25598086124401914,
+   "precision_visitas": 0.2672506900276011
+  },
+  {
+   "politica": "Persistencia (casos actuales)",
+   "visitas": 6955,
+   "brotes_atendidos": 2134,
+   "cobertura_brotes": 0.34767025089605735,
+   "inicios_atendidos": 238,
+   "cobertura_inicios": 0.189792663476874,
+   "precision_visitas": 0.3068296189791517
+  },
+  {
+   "politica": "Solo reglas expertas",
+   "visitas": 6964,
+   "brotes_atendidos": 2137,
+   "cobertura_brotes": 0.34815900944933204,
+   "inicios_atendidos": 237,
+   "cobertura_inicios": 0.18899521531100477,
+   "precision_visitas": 0.30686387133831133
+  },
+  {
+   "politica": "Oráculo (límite teórico)",
+   "visitas": 2401,
+   "brotes_atendidos": 2401,
+   "cobertura_brotes": 0.3911697621375041,
+   "inicios_atendidos": 604,
+   "cobertura_inicios": 0.48165869218500795,
+   "precision_visitas": 1.0
+  },
+  {
+   "politica": "Aleatorio",
+   "visitas": 8370.0,
+   "brotes_atendidos": 969.4,
+   "cobertura_brotes": 0.15793418051482566,
+   "inicios_atendidos": 189.2,
+   "cobertura_inicios": 0.15087719298245614,
+   "precision_visitas": 0.1158183990442055
+  }
+ ],
+ "sensibilidad_paradas": [
+  {
+   "paradas": 1,
+   "politica": "Agente",
+   "visitas": 2790,
+   "brotes_atendidos": 970,
+   "cobertura_brotes": 0.15803193222548062,
+   "inicios_atendidos": 140,
+   "cobertura_inicios": 0.11164274322169059,
+   "precision_visitas": 0.34767025089605735,
+   "cobertura_persistencia": 0.15004887585532747,
+   "inicios_persistencia": 0.07177033492822966
+  },
+  {
+   "paradas": 2,
+   "politica": "Agente",
+   "visitas": 5562,
+   "brotes_atendidos": 1677,
+   "cobertura_brotes": 0.2732160312805474,
+   "inicios_atendidos": 243,
+   "cobertura_inicios": 0.1937799043062201,
+   "precision_visitas": 0.30151024811218985,
+   "cobertura_persistencia": 0.26099706744868034,
+   "inicios_persistencia": 0.13556618819776714
+  },
+  {
+   "paradas": 3,
+   "politica": "Agente",
+   "visitas": 8333,
+   "brotes_atendidos": 2227,
+   "cobertura_brotes": 0.3628217660475725,
+   "inicios_atendidos": 321,
+   "cobertura_inicios": 0.25598086124401914,
+   "precision_visitas": 0.2672506900276011,
+   "cobertura_persistencia": 0.34767025089605735,
+   "inicios_persistencia": 0.189792663476874
+  },
+  {
+   "paradas": 5,
+   "politica": "Agente",
+   "visitas": 13510,
+   "brotes_atendidos": 3050,
+   "cobertura_brotes": 0.4969045291625937,
+   "inicios_atendidos": 459,
+   "cobertura_inicios": 0.3660287081339713,
+   "precision_visitas": 0.22575869726128794,
+   "cobertura_persistencia": 0.48550016291951775,
+   "inicios_persistencia": 0.30063795853269537
+  }
+ ],
+ "busqueda": {
+  "problemas": 2790,
+  "nodos_expandidos": {
+   "a*": 48448,
+   "ucs": 185101,
+   "voraz": 2790
+  },
+  "costo_total": {
+   "a*": 6105.588048253963,
+   "ucs": 6105.588048253963,
+   "voraz": 8370.0
+  },
+  "a_estrella_igual_ucs": true,
+  "exceso_voraz": 0.3708753250055248
+ }
+}
