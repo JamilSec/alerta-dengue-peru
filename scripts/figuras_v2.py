@@ -95,9 +95,83 @@ def agente(v2, F):
     guardar(fig, F, "20_agente_plan")
 
 
+def limpio(ax):
+    ax.spines[["top", "right"]].set_visible(False)
+
+
+def barras(ax, x, series, titulo, ylim=(0, 1)):
+    n, w = len(series), .8 / len(series)
+    for k, (nom, val, col) in enumerate(series):
+        pos = np.arange(len(x)) + (k - (n - 1) / 2) * w
+        ax.bar(pos, val, w * .9, color=col, label=nom)
+        for a, b in zip(pos, val):
+            ax.text(a, b + .015, f"{b:.2f}".replace(".", ","), ha="center", fontsize=7, color="#333")
+    ax.set_xticks(np.arange(len(x)), x); ax.set(title=titulo, ylim=ylim); ax.legend(frameon=False, fontsize=7, loc="upper center", ncols=n, bbox_to_anchor=(.5, -.1)); limpio(ax)
+
+
+def gru(v2, F):
+    A = json.loads((v2 / "analisis_gru.json").read_text(encoding="utf-8"))
+    S = json.loads((v2 / "sistema_final.json").read_text(encoding="utf-8"))
+    m = np.array(S["matriz_confusion"])
+    fig, ax = plt.subplots(figsize=(3.4, 2.9))
+    ax.imshow(m, cmap="Blues", vmin=0, vmax=m.max() * 1.25)
+    for (i, j), v in np.ndenumerate(m):
+        ax.text(j, i, f"{v:,}".replace(",", " "), ha="center", va="center", color="white" if v > m.max() * .6 else "#222")
+    ax.set_xticks([0, 1], ["No brote", "Brote"]); ax.set_yticks([0, 1], ["No brote", "Brote"]); ax.set(xlabel="Predicho", ylabel="Real", title="Matriz de confusión de la GRU (prueba)")
+    ax.grid(False); guardar(fig, F, "21_matriz_gru")
+
+    t = pd.DataFrame(A["importancia"]).sort_values("caida_pr_auc")
+    fig, ax = plt.subplots(1, 2, figsize=(8.2, 3), sharey=True)
+    for a, c, ti in zip(ax, ["caida_pr_auc", "caida_pr_auc_inicio"], ["Todas las semanas", "Solo semanas sin brote (inicios)"]):
+        a.barh(t.grupo, t[c], color=AZUL, height=.62); a.set(title=ti, xlabel="Caída de PR-AUC al permutar"); limpio(a)
+    guardar(fig, F, "22_importancia_gru")
+
+    p = pd.read_csv(v2 / "app_panel_v2.csv.gz", dtype={"ubigeo": str}, keep_default_na=False, na_values=[""])
+    u = p.groupby("ubigeo").y.sum().idxmax()
+    g = p[p.ubigeo == u].sort_values(["ano", "semana"]).reset_index(drop=True)
+    fig, ax = plt.subplots(figsize=(7.5, 2.9))
+    ax.plot(g.index, g.casos_sig, color="#333", label="Casos (semana siguiente)"); ax.plot(g.index, g.umbral_sig, color="#e0a030", ls="--", label="Umbral")
+    al = g[g.yhat == 1]; ax.scatter(al.index, al.casos_sig, color=ROJO, s=12, label="Alerta de la GRU", zorder=3)
+    ax.set(title=f"Ejemplo: {g.distrito.iloc[0]} ({g.departamento.iloc[0]}), 2023-2025", xlabel="Semana del periodo", ylabel="Casos"); ax.legend(frameon=False, fontsize=7); limpio(ax)
+    guardar(fig, F, "23_ejemplo_gru")
+
+    a = pd.DataFrame(A["por_ano"])
+    x = a.ano.astype(str).tolist()
+    fig, ax = plt.subplots(1, 3, figsize=(9.2, 2.9))
+    barras(ax[0], x, [("GRU", a.pr_auc, AZUL), ("Azar", a.prevalencia, GRIS)], "PR-AUC")
+    barras(ax[1], x, [("GRU", a.f1, AZUL), ("Persistencia", a.f1_persistencia, GRIS)], "F1")
+    barras(ax[2], x, [("Recall", a.recall_inicio, AZUL), ("Precisión", a.precision_inicio, ROJO)], "Inicios de brote", (0, .7))
+    fig.tight_layout(); guardar(fig, F, "24_por_ano")
+
+    fig, ax = plt.subplots(2, 1, figsize=(7.5, 3.6), sharex=True)
+    s = p.sort_values(["ano", "semana"])
+    cl = s.groupby(["ano", "semana"], sort=True)
+    nu = s[(s.en_brote == 0) & (s.yhat == 1)].groupby(["ano", "semana"]).size().reindex(cl.size().index, fill_value=0)
+    co = s[(s.en_brote == 1) & (s.yhat == 1)].groupby(["ano", "semana"]).size().reindex(cl.size().index, fill_value=0)
+    t_ = np.arange(len(nu))
+    ax[0].fill_between(t_, nu.values, color=ROJO, step="mid", lw=0); ax[0].set(ylabel="Alertas", title="Alertas de inicio por semana (distritos sin brote)")
+    ax[1].fill_between(t_, co.values, color=AZUL, step="mid", lw=0); ax[1].set(ylabel="Alertas", title="Alertas de continuación por semana (distritos en brote)")
+    for a_ in ax:
+        limpio(a_)
+    ax[1].set_xticks(np.arange(0, len(nu), 52), ["2023", "2024", "2025"])
+    fig.tight_layout(); guardar(fig, F, "25_carga_alertas")
+
+    h = pd.DataFrame(A["horizontes"])
+    col = {"GRU": ROJO, "Gradient Boosting": AZUL, "Persistencia": GRIS}
+    fig, ax = plt.subplots(1, 3, figsize=(9.2, 2.8))
+    for a_, c, ti in zip(ax, ["f1", "pr_auc_inicio", "recall_inicio"], ["F1", "PR-AUC en inicios", "Recall de inicios"]):
+        for nom, g_ in h.groupby("modelo"):
+            g_ = g_.dropna(subset=[c])
+            if len(g_) and not (c == "recall_inicio" and nom == "Persistencia"):
+                a_.plot(g_.horizonte, g_[c], "o-", color=col[nom], lw=2, ms=6, label=nom)
+        a_.set(title=ti, xlabel="Semanas de anticipación", xticks=[1, 2, 4], ylim=(0, 1)); limpio(a_)
+    ax[0].legend(frameon=False, fontsize=7)
+    fig.tight_layout(); guardar(fig, F, "26_horizontes")
+
+
 if __name__ == "__main__":
     if len(sys.argv) != 5:
         sys.exit(__doc__)
     v2, F = Path(sys.argv[3]), Path(sys.argv[4])
-    imagen(sys.argv[1], sys.argv[2], v2, F); curvas(v2, F); bosque(v2, F); agente(v2, F)
+    imagen(sys.argv[1], sys.argv[2], v2, F); curvas(v2, F); bosque(v2, F); agente(v2, F); gru(v2, F)
     print("OK")

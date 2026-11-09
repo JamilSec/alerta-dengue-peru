@@ -11,5 +11,6 @@ $PY scripts/experimentos_v2.py "$CSV" datos/clima outputs/v2 > outputs/experimen
 $PY scripts/red_profunda.py "$CSV" datos/clima outputs/v2 25 > outputs/red_profunda.log 2>&1
 $PY scripts/evaluar_v2.py outputs/v2 0.40 500 > outputs/evaluar_v2.log 2>&1
 $PY scripts/agente.py outputs/v2 datos/clima/celda_por_ubigeo.csv 3 400 > outputs/agente.log 2>&1
+$PY scripts/analisis_gru.py "$CSV" datos/clima outputs/v2 25 > outputs/analisis_gru.log 2>&1
 $PY scripts/figuras_v2.py "$CSV" datos/clima outputs/v2 outputs/fig > outputs/figuras_v2.log 2>&1
 echo LISTO

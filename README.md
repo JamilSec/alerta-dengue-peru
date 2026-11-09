@@ -7,9 +7,11 @@ Proyecto final del curso Sistemas Inteligentes y Machine Learning (UPN). Predice
 | Sistema | PR-AUC | F1 | Recall de inicios |
 |---|---|---|---|
 | GRU (elegido en validación) | 0,914 | 0,806 | 49,0 % |
-| Gradient Boosting ajustado | 0,906 | 0,816 | 24,6 % |
+| Gradient Boosting ajustado | 0,906 | 0,816 | 27,3 % |
 | Sistema experto (reglas) | — | 0,722 | 57,3 % |
 | Persistencia | — | 0,794 | 0 % |
+
+La GRU mantiene entre 45,5 % y 53,7 % de detección de inicios en cada año de prueba, y a 4 semanas de anticipación detecta 43,0 % con precisión 46,0 %.
 
 Partición temporal: entrenamiento hasta 2020, validación 2021-2022, prueba 2023-2025. El detalle está en `entrega/Informe_Final_SISIN.docx`.
 

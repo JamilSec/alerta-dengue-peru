@@ -58,6 +58,18 @@ def construir(d, S, ano0):
     return im, sq
 
 
+def tensores(d, S, ano0):
+    """Tensores [imagen, secuencia, tabular] escalados solo con entrenamiento e indices de cada particion."""
+    im, sq = construir(d, S, ano0)
+    itr = np.where(d.ano <= pl.FIN_TRAIN)[0]; iva = np.where((d.ano > pl.FIN_TRAIN) & (d.ano <= pl.FIN_VALID))[0]; ite = np.where(d.ano > pl.FIN_VALID)[0]
+    im[:, 1] = (im[:, 1] - im[itr, 1].mean()) / im[itr, 1].std()
+    me, de = sq[itr].mean((0, 1)), sq[itr].std((0, 1))
+    sq = (sq - me) / de
+    tab = d[TAB].values.astype(np.float32); mt, dt_ = tab[itr].mean(0), tab[itr].std(0)
+    tab = (tab - mt) / np.where(dt_ == 0, 1, dt_)
+    return [im, sq, tab], itr, iva, ite
+
+
 class CNN(nn.Module):
     def __init__(self, ntab):
         super().__init__()
@@ -130,15 +142,7 @@ def main():
     S, ano0 = series(p, c, dc)
     d = pd.read_pickle(v2 / "panel_v2.pkl").reset_index(drop=True)
     print("construyendo tensores", len(d), DEV, flush=True)
-    im, sq = construir(d, S, ano0)
-    itr = np.where(d.ano <= pl.FIN_TRAIN)[0]; iva = np.where((d.ano > pl.FIN_TRAIN) & (d.ano <= pl.FIN_VALID))[0]; ite = np.where(d.ano > pl.FIN_VALID)[0]
-    # escalado solo con entrenamiento
-    im[:, 1] = (im[:, 1] - im[itr, 1].mean()) / im[itr, 1].std()
-    me, de = sq[itr].mean((0, 1)), sq[itr].std((0, 1))
-    sq = (sq - me) / de
-    tab = d[TAB].values.astype(np.float32); mt, dt_ = tab[itr].mean(0), tab[itr].std(0)
-    tab = (tab - mt) / np.where(dt_ == 0, 1, dt_)
-    D = [im, sq, tab]
+    D, itr, iva, ite = tensores(d, S, ano0)
     y = d.y.values.astype(np.float32)
     sc = np.load(v2 / "scores_tabulares.npz")
     base = max(["una_etapa_sin_clima", "una_etapa_con_clima"], key=lambda k: ap(y[iva], sc[f"{k}_valid"]))

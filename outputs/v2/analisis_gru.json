@@ -1,0 +1,297 @@
+{
+ "entrenamiento": {
+  "precision": 0.7057745187901008,
+  "recall": 0.7715430861723447,
+  "f1": 0.7371948300622307,
+  "balanced_acc": 0.8819914385150552,
+  "recall_inicio_brote": 0.39282385834109973,
+  "n_inicios": 2146,
+  "n": 304200,
+  "prevalencia": 0.022965154503616043,
+  "pr_auc": 0.8269448710977465,
+  "roc_auc": 0.9913110282843083,
+  "precision_inicio": 0.4367875647668394
+ },
+ "importancia": [
+  {
+   "grupo": "Casos recientes",
+   "caida_pr_auc": 0.6201268480508911,
+   "de": 0.004433363381032287,
+   "caida_pr_auc_inicio": 0.36718175062912894,
+   "de_inicio": 0.0009083811455420669
+  },
+  {
+   "grupo": "Cercanía al umbral",
+   "caida_pr_auc": 0.24727481817073924,
+   "de": 0.001419613229985843,
+   "caida_pr_auc_inicio": 0.31580860297944,
+   "de_inicio": 0.001103684024100166
+  },
+  {
+   "grupo": "Historia de casos (52 semanas)",
+   "caida_pr_auc": 0.05515651429793191,
+   "de": 0.0012804083205803529,
+   "caida_pr_auc_inicio": 0.17898695918032198,
+   "de_inicio": 0.0029082118812761805
+  },
+  {
+   "grupo": "Temperatura y humedad (52 semanas)",
+   "caida_pr_auc": 0.004304340231852421,
+   "de": 0.00032383924915076455,
+   "caida_pr_auc_inicio": 0.028345071383927768,
+   "de_inicio": 0.002032734446329068
+  },
+  {
+   "grupo": "Contexto departamental",
+   "caida_pr_auc": 0.002716686222914544,
+   "de": 0.00024481509809247236,
+   "caida_pr_auc_inicio": 0.013060229172435312,
+   "de_inicio": 0.0039407421071527594
+  },
+  {
+   "grupo": "Clima reciente",
+   "caida_pr_auc": 0.002447929335722443,
+   "de": 0.0003922559804268712,
+   "caida_pr_auc_inicio": 0.014927804344824458,
+   "de_inicio": 0.0028683790107190965
+  },
+  {
+   "grupo": "Lluvia (52 semanas)",
+   "caida_pr_auc": 0.002230231710477848,
+   "de": 0.0001937831285429878,
+   "caida_pr_auc_inicio": 0.012945360206643709,
+   "de_inicio": 0.00213279306969376
+  },
+  {
+   "grupo": "Estacionalidad",
+   "caida_pr_auc": 0.0015330106682370115,
+   "de": 0.00022961123331161044,
+   "caida_pr_auc_inicio": 0.008160391728200055,
+   "de_inicio": 0.0017302863849841615
+  }
+ ],
+ "errores": {
+  "FN_media_casos_semana_actual": 11.096695226438188,
+  "VP_media_casos_semana_actual": 66.2839691787258,
+  "FN_que_son_inicio": 0.7833537331701347,
+  "FP_que_estaban_en_brote": 0.4573065902578797,
+  "FP_inicio": 947,
+  "FP_continuacion": 798
+ },
+ "por_ano": [
+  {
+   "ano": 2023,
+   "filas": 16900,
+   "prevalencia": 0.22532544378698224,
+   "pr_auc": 0.9254230305943162,
+   "f1": 0.8247243899417812,
+   "f1_persistencia": 0.8156233561283535,
+   "inicios": 707,
+   "recall_inicio": 0.45544554455445546,
+   "precision_inicio": 0.40401505646173147,
+   "azar_inicio": 0.053952991452991456
+  },
+  {
+   "ano": 2024,
+   "filas": 16900,
+   "prevalencia": 0.11473372781065089,
+   "pr_auc": 0.921765487367353,
+   "f1": 0.8077651515151515,
+   "f1_persistencia": 0.7982613142418818,
+   "inicios": 378,
+   "recall_inicio": 0.5370370370370371,
+   "precision_inicio": 0.37732342007434944,
+   "azar_inicio": 0.02532154340836013
+  },
+  {
+   "ano": 2025,
+   "filas": 16575,
+   "prevalencia": 0.02358974358974359,
+   "pr_auc": 0.7005935060516858,
+   "f1": 0.6306504961411246,
+   "f1_persistencia": 0.5634517766497462,
+   "inicios": 169,
+   "recall_inicio": 0.5266272189349113,
+   "precision_inicio": 0.3938053097345133,
+   "azar_inicio": 0.010446285078501668
+  }
+ ],
+ "carga": {
+  "alertas_semana": {
+   "mediana": 25.0,
+   "p90": 114.6,
+   "maximo": 148
+  },
+  "nuevas_semana": {
+   "mediana": 9.0,
+   "p90": 21.0,
+   "maximo": 33
+  },
+  "semanas": 155,
+  "semanas_sin_nuevas": 2,
+  "nuevas_por_departamento_activo": {
+   "mediana": 1.0,
+   "p90": 4.0,
+   "maximo": 11
+  },
+  "top10_precision": 0.3393548387096774,
+  "top10_inicios_cubiertos": 0.4194577352472089,
+  "azar_inicio": 0.028364623388373672
+ },
+ "tamano_inicios": {
+  "ventana_semanas": 8,
+  "n_detectados": 609,
+  "n_omitidos": 631,
+  "mediana_detectados": 90.0,
+  "mediana_omitidos": 42.0,
+  "media_detectados": 165.0344827586207,
+  "media_omitidos": 127.97622820919176,
+  "proporcion_casos_en_detectados": 0.5544883288553948
+ },
+ "horizontes": [
+  {
+   "modelo": "Persistencia",
+   "horizonte": 1,
+   "n_test": 50375,
+   "prevalencia": 0.12184615384615384,
+   "n_inicios": 1254,
+   "azar_inicio": 0.028364623388373672,
+   "pr_auc": null,
+   "precision": 0.7922141119221411,
+   "recall": 0.7956989247311828,
+   "f1": 0.7939526944647647,
+   "pr_auc_inicio": null,
+   "recall_inicio": 0.0,
+   "precision_inicio": 0.0,
+   "alertas_inicio": 0
+  },
+  {
+   "modelo": "Gradient Boosting",
+   "horizonte": 1,
+   "n_test": 50375,
+   "prevalencia": 0.12184615384615384,
+   "n_inicios": 1254,
+   "azar_inicio": 0.028364623388373672,
+   "pr_auc": 0.9074233394044501,
+   "precision": 0.7529227259766182,
+   "recall": 0.8603779732811991,
+   "f1": 0.8030717761557178,
+   "pr_auc_inicio": 0.38499960069461514,
+   "recall_inicio": 0.430622009569378,
+   "precision_inicio": 0.38598999285203717,
+   "alertas_inicio": 1399.0
+  },
+  {
+   "modelo": "GRU",
+   "horizonte": 1,
+   "n_test": 50375,
+   "prevalencia": 0.12184615384615384,
+   "n_inicios": 1254,
+   "azar_inicio": 0.028364623388373672,
+   "pr_auc": 0.9136452441682424,
+   "precision": 0.7530427398811209,
+   "recall": 0.8668947539915282,
+   "f1": 0.8059678885186308,
+   "pr_auc_inicio": 0.41915837274755086,
+   "recall_inicio": 0.48963317384370014,
+   "precision_inicio": 0.39333760409993596,
+   "alertas_inicio": 1561.0
+  },
+  {
+   "modelo": "Persistencia",
+   "horizonte": 2,
+   "n_test": 50050,
+   "prevalencia": 0.12205794205794206,
+   "n_inicios": 1513,
+   "azar_inicio": 0.03447254499886079,
+   "pr_auc": null,
+   "precision": 0.7461038961038962,
+   "recall": 0.7523326239973809,
+   "f1": 0.7492053142065368,
+   "pr_auc_inicio": null,
+   "recall_inicio": 0.0,
+   "precision_inicio": 0.0,
+   "alertas_inicio": 0
+  },
+  {
+   "modelo": "Gradient Boosting",
+   "horizonte": 2,
+   "n_test": 50050,
+   "prevalencia": 0.12205794205794206,
+   "n_inicios": 1513,
+   "azar_inicio": 0.03447254499886079,
+   "pr_auc": 0.8625023050539669,
+   "precision": 0.6969738651994498,
+   "recall": 0.8294319855950237,
+   "f1": 0.7574557141789371,
+   "pr_auc_inicio": 0.3486977879122734,
+   "recall_inicio": 0.41639127561136813,
+   "precision_inicio": 0.3622771707878091,
+   "alertas_inicio": 1739.0
+  },
+  {
+   "modelo": "GRU",
+   "horizonte": 2,
+   "n_test": 50050,
+   "prevalencia": 0.12205794205794206,
+   "n_inicios": 1513,
+   "azar_inicio": 0.03447254499886079,
+   "pr_auc": 0.8776446639585495,
+   "precision": 0.6955531743905706,
+   "recall": 0.8500572925192339,
+   "f1": 0.7650828729281768,
+   "pr_auc_inicio": 0.4153998688628008,
+   "recall_inicio": 0.5287508261731659,
+   "precision_inicio": 0.3770028275212064,
+   "alertas_inicio": 2122.0
+  },
+  {
+   "modelo": "Persistencia",
+   "horizonte": 4,
+   "n_test": 49400,
+   "prevalencia": 0.12194331983805667,
+   "n_inicios": 1947,
+   "azar_inicio": 0.04501734104046243,
+   "pr_auc": null,
+   "precision": 0.6629268292682927,
+   "recall": 0.6767928286852589,
+   "f1": 0.6697880729423361,
+   "pr_auc_inicio": null,
+   "recall_inicio": 0.0,
+   "precision_inicio": 0.0,
+   "alertas_inicio": 0
+  },
+  {
+   "modelo": "Gradient Boosting",
+   "horizonte": 4,
+   "n_test": 49400,
+   "prevalencia": 0.12194331983805667,
+   "n_inicios": 1947,
+   "azar_inicio": 0.04501734104046243,
+   "pr_auc": 0.7601603633274212,
+   "precision": 0.6892222403391489,
+   "recall": 0.7016932270916335,
+   "f1": 0.6954018261084149,
+   "pr_auc_inicio": 0.33873377585430975,
+   "recall_inicio": 0.2516692347200822,
+   "precision_inicio": 0.45244690674053556,
+   "alertas_inicio": 1083.0
+  },
+  {
+   "modelo": "GRU",
+   "horizonte": 4,
+   "n_test": 49400,
+   "prevalencia": 0.12194331983805667,
+   "n_inicios": 1947,
+   "azar_inicio": 0.04501734104046243,
+   "pr_auc": 0.7977435577088742,
+   "precision": 0.6747601046815935,
+   "recall": 0.7704183266932271,
+   "f1": 0.7194233452177957,
+   "pr_auc_inicio": 0.4187452860120483,
+   "recall_inicio": 0.43040575243965074,
+   "precision_inicio": 0.4601867105985722,
+   "alertas_inicio": 1821.0
+  }
+ ]
+}
